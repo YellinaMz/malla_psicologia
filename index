@@ -2,60 +2,40 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>💖 Malla Psicología Cute ULagos 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <title>Malla Interactiva Psicología ULagos</title>
   <style>
     body {
-      font-family: 'Quicksand', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 20px;
-      background: #fff0f6;
-      color: #4a2c2a;
+      background: #f9f9f9;
     }
     h1 {
       text-align: center;
-      color: #d63384;
-      font-size: 2.5em;
-      margin-bottom: 30px;
     }
     .semestre {
-      margin-bottom: 30px;
-      background: #ffe6f0;
-      border-radius: 20px;
-      padding: 15px 20px;
-      box-shadow: 0 4px 8px rgba(255, 192, 203, 0.3);
-    }
-    .semestre h2 {
-      color: #c2185b;
-      border-bottom: 2px dashed #f8bbd0;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     .asignatura {
-      padding: 10px 15px;
-      border-radius: 15px;
-      background-color: #fce4ec;
-      border: 1px solid #f8bbd0;
-      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #eee;
+      margin: 5px 0;
       cursor: pointer;
-      transition: transform 0.2s, background 0.3s;
     }
-    .asignatura:hover {
-      background-color: #f8bbd0;
-      transform: scale(1.02);
-    }
-    .aprobado[data-nota="7"] { background-color: #ffe3f3 !important; }
-    .aprobado[data-nota="6"] { background-color: #ffd6ec !important; }
-    .aprobado[data-nota="5"] { background-color: #ffccf9 !important; }
-    .aprobado[data-nota="4"] { background-color: #ffb3e6 !important; }
-    .aprobado[data-nota="3"] { background-color: #ff99cc !important; }
+    .aprobado[data-nota="7"] { background-color: #c8e6c9 !important; }
+    .aprobado[data-nota="6"] { background-color: #dcedc8 !important; }
+    .aprobado[data-nota="5"] { background-color: #fff9c4 !important; }
+    .aprobado[data-nota="4"] { background-color: #ffe0b2 !important; }
+    .aprobado[data-nota="3"] { background-color: #ffcdd2 !important; }
     .bloqueado {
-      opacity: 0.4;
+      opacity: 0.5;
       pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <h1>📚✨ Malla Interactiva Psicología ✨🎀</h1>
+  <h1>Malla Interactiva Psicología ULagos</h1>
   <div id="contenedor"></div>
 
   <script>
@@ -145,13 +125,13 @@
         divSem.className = "semestre";
 
         const h2 = document.createElement("h2");
-        h2.textContent = `🌸 Semestre ${semestre}`;
+        h2.textContent = `Semestre ${semestre}`;
         divSem.appendChild(h2);
 
         asignaturas.forEach(asig => {
           const divAsig = document.createElement("div");
           divAsig.className = "asignatura";
-          divAsig.textContent = `💗 ${asig.codigo} - ${asig.nombre}`;
+          divAsig.textContent = `${asig.codigo} - ${asig.nombre}`;
 
           const requisitosCumplidos = !asig.requisitos || asig.requisitos.every(r => estadoAsignaturas[r]);
           if (!requisitosCumplidos) divAsig.classList.add("bloqueado");
@@ -160,12 +140,12 @@
             const nota = estadoAsignaturas[asig.codigo];
             divAsig.classList.add("aprobado");
             divAsig.setAttribute("data-nota", nota);
-            divAsig.textContent += ` 💮 (Nota: ${nota})`;
+            divAsig.textContent += ` (Nota: ${nota})`;
           }
 
           divAsig.addEventListener("click", () => {
             if (!requisitosCumplidos) return;
-            const nota = prompt("🌷 Ingresa tu nota (1-7):");
+            const nota = prompt("Ingresa la nota (1-7):");
             if (nota >= 1 && nota <= 7) {
               estadoAsignaturas[asig.codigo] = Math.floor(nota);
               renderMalla();
@@ -183,4 +163,3 @@
   </script>
 </body>
 </html>
-
