@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+}
+
+.semestre {
+  margin-bottom: 30px;
+}
+
+.semestre h2 {
+  background: #222;
+  color: #fff;
+  padding: 10px;
+}
+
+.asignatura {
+  padding: 10px;
+  margin: 5px 0;
+  background: #eee;
+  border-left: 10px solid #ccc;
+  cursor: pointer;
+}
+
+.aprobada {
+  background: #c8e6c9;
+  border-left-color: #2e7d32;
+}
+
+.bloqueada {
+  background: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
